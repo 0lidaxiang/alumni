@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:Alumni/news/news_list_page.dart';
 import 'package:Alumni/register/forget_password_page.dart';
 import 'package:Alumni/register/register_page.dart';
 import 'package:flutter/material.dart';
@@ -27,7 +28,7 @@ class _Login extends State<Login> {
     print('userName: ' + userName + ' password: ' + password);
     Navigator.push(context, 
       MaterialPageRoute(builder:
-       (context) =>Home()));
+       (context) =>NewsPage()));
   }
   
   // 请求网络的login

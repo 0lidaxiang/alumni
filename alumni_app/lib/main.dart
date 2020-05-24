@@ -1,18 +1,17 @@
+import 'package:Alumni/common/bottom_page.dart';
 import 'package:flutter/material.dart';
-
-import 'login/login.dart';
-
+ 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Alumins',
       // theme: ThemeData(
       //   primarySwatch: Colors.blue,
       // ),
-      home: MyHomePage(),
+      home: BottomPage(),
     );
   }
 }
@@ -26,7 +25,7 @@ class MyHomePage extends StatelessWidget {
         onPressed: (){
           Navigator.push(
               context,
-              new MaterialPageRoute(builder: (context) => new Login())
+              new MaterialPageRoute(builder: (context) => new BottomPage())
           );
         },
       ),

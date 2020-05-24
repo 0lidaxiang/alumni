@@ -1,3 +1,4 @@
+import 'package:Alumni/login/login.dart';
 import 'package:flutter/material.dart';
 
 class MinePage extends StatelessWidget {
@@ -50,6 +51,9 @@ class _PageState extends State<MinePageWidget> with AutomaticKeepAliveClientMixi
   }
 
     Widget _cell(int row, IconData iconData, String title, String describe, bool isShowBottomLine) {
+      // if(row == 5){
+       
+       
     return GestureDetector(
       onTap: () {
         switch (row) {
@@ -112,6 +116,7 @@ class _PageState extends State<MinePageWidget> with AutomaticKeepAliveClientMixi
         ),
       ),
     );
+      // }
   }
 
   Widget _bottomLine(bool isShowBottomLine) {
@@ -216,7 +221,10 @@ class _PageState extends State<MinePageWidget> with AutomaticKeepAliveClientMixi
               return _cell(index, Icons.title, "调查问卷", "", false);
             } else if (index == 4) {
               return _cell(index, Icons.help, "关于我们", "", true);
-            }  else {
+            }  else if (index == 5) {
+               
+              return _cell(index, Icons.help, "login", "", true);
+            } else {
               return new Container(
                 height: MediaQuery.of(context).size.height,
                 color: Color(0xfff5efef),
