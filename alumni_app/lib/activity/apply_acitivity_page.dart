@@ -1,22 +1,37 @@
+import 'dart:convert';
+
 import 'package:Alumni/questionnaire/checkbox_page.dart';
-import 'package:Alumni/questionnaire/depart_radio.dart';
 import 'package:Alumni/questionnaire/gender_radio.dart';
 import 'package:Alumni/questionnaire/select_list_page.dart';
 import 'package:flutter/material.dart';
- 
- 
+
+final String INIT_ACTIVITY_NAME = '{"activityName":"test"}';
 
 class ApplyActivityPage extends StatefulWidget {
+  String params;
+  ApplyActivityPage(String params) {
+    this.params = params;
+  }
+
   @override
-  _ApplyActivityPageState createState() => new _ApplyActivityPageState();
+  _ApplyActivityPageState createState() =>
+      new _ApplyActivityPageState(this.params);
 }
 
 class _ApplyActivityPageState extends State<ApplyActivityPage> {
   GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
-
+  String activityName;
   String _name;
-
   String _password;
+
+  _ApplyActivityPageState(String params) {
+    Map<String, dynamic> paramJson = json.decode(params);
+    print(paramJson);
+    print(paramJson['activityName']);
+    // print(params["data"]);
+    // this.activityName = params['data'][0];
+    this.activityName = paramJson['activityName'].toString();
+  }
 
   void _forSubmitted() {
     var _form = _formKey.currentState;
@@ -45,14 +60,11 @@ class _ApplyActivityPageState extends State<ApplyActivityPage> {
           height: 600,
           padding: const EdgeInsets.all(16.0),
           child: new Form(
-            
             key: _formKey,
             child: new Column(
-              
               children: <Widget>[
-                 
+                new Text("活动名称: " + this.activityName),
                 new TextFormField(
-                  
                   decoration: new InputDecoration(
                     labelText: '姓名',
                   ),
@@ -68,7 +80,7 @@ class _ApplyActivityPageState extends State<ApplyActivityPage> {
                     _name = val;
                   },
                 ),
-                
+
                 GenderRadio(),
                 // DepartRadio(),
                 new TextFormField(
@@ -79,15 +91,14 @@ class _ApplyActivityPageState extends State<ApplyActivityPage> {
                     _name = val;
                   },
                 ),
-                
+
                 FoodCheckbox(),
                 DepartSelectList(),
-                
               ],
             ),
           ),
         ),
-        resizeToAvoidBottomPadding: false, 
+        resizeToAvoidBottomPadding: false,
       ),
     );
   }

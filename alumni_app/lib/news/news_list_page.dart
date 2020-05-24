@@ -1,9 +1,8 @@
-import 'dart:math';
- 
 import 'package:Alumni/common/bottom_page.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
- 
- 
+import 'dart:convert' show JSON, jsonDecode;
+
 var COLORS = [
   Color(0xFFEF7A85),
   Color(0xFFFF90B3),
@@ -11,24 +10,28 @@ var COLORS = [
   Color(0xFFB892FF),
   Color(0xFFB892FF)
 ];
- 
- 
+
 class NewsPage extends StatefulWidget {
   NewsPage({Key key, this.title}) : super(key: key);
- 
+
   final String title;
- 
+
   @override
   _NewsPageState createState() => new _NewsPageState();
 }
- 
+
 class _NewsPageState extends State<NewsPage> {
-   final List<String> items = new List<String>.generate(30, (i) => "新闻 $i");
-  
+  List<String> items = new List();
+
+  _NewsPageState() {
+    getRequest();
+  }
+
   @override
   Widget build(BuildContext context) {
     final title = '新闻速报';
-   bottomNavigationBar: BottomPage();
+    bottomNavigationBar:
+    BottomPage();
     return new MaterialApp(
       title: title,
       home: new Scaffold(
@@ -47,5 +50,34 @@ class _NewsPageState extends State<NewsPage> {
     );
   }
 
+  void getRequest() async { 
+    Dio dio = new Dio(); 
+    // var response = await dio.get("/test?id=12&name=chen");
+    var response = await dio
+        .get("https://fms.csschina.com/merchant_css/runnerRest/getLiveOrders");
+
+    // print(response.runtimeType.toString());
+    // print(response.headers);
+
+    var ll = jsonDecode(response.toString());
+
+    if (ll != null && ll.length > 0) {
+      items = new List<String>.generate(13, (i) => "新闻s $i");
+      setState(() {
+        items = new List<String>.generate(
+            13,
+            (i) =>
+                "新闻error 新闻error 新闻error 新闻error 新闻error 新闻error 新闻error 新闻error 新闻error 新闻error $i");
+      });
+
+    } else {
+      setState(() {
+        items = new List<String>.generate(
+            13,
+            (i) =>
+                "新闻error 新闻error 新闻error 新闻error 新闻error 新闻error 新闻error 新闻error 新闻error 新闻error $i");
+      });
+      print("error");
+    }
+  }
 }
-  

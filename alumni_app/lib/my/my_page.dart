@@ -224,14 +224,15 @@ class _PageState extends State<MinePageWidget> with AutomaticKeepAliveClientMixi
             }  else if (index == 5) {
                
               return _cell(index, Icons.help, "login", "", true);
-            } else {
+            } 
+            else {
               return new Container(
                 height: MediaQuery.of(context).size.height,
                 color: Color(0xfff5efef),
               );
             }
           },
-          itemCount: 6 + 1,
+          itemCount: 5 + 1,
         ),
       ),
     );

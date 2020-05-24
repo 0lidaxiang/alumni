@@ -1,6 +1,4 @@
-import 'dart:math';
- 
-import 'package:Alumni/activity/join_acitivity_page.dart';
+import 'package:Alumni/config/app_router.dart';
 import 'package:flutter/material.dart';
  
 // void main() => runApp(new MyApp());
@@ -44,7 +42,10 @@ class _ActivityListPageState extends State<ActivityListPage> {
               onTap: (){
                   print("活动 item " );
                   print(index);
-                  Navigator.push(context, MaterialPageRoute(builder: (context) =>ApplyActivityPage()));
+                  var bodyJson = '{"activityName":' + index.toString() +'}';
+                  // var bodyJson = index.toString();
+                  router.navigateTo(context, '/apply/$bodyJson');
+                  // Navigator.push(context, MaterialPageRoute(builder: (context) =>ApplyActivityPage(activityName: index.toString())));
               },
             );
           },
