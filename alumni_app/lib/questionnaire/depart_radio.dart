@@ -1,7 +1,3 @@
-import 'package:Alumni/login/login.dart';
-import 'package:Alumni/my/my_page.dart';
-import 'package:Alumni/questionnaire/question_page.dart';
-import 'package:Alumni/questionnaire/questionnaire_page.dart';
 import 'package:flutter/material.dart';
 
 

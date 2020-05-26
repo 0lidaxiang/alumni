@@ -1,4 +1,3 @@
-import 'package:Alumni/login/login.dart';
 import 'package:flutter/material.dart';
 
 class MinePage extends StatelessWidget {
@@ -133,12 +132,7 @@ class _PageState extends State<MinePageWidget> with AutomaticKeepAliveClientMixi
     return Container();
   }
 
-  Widget _spaceView() {
-    return Container(
-      height: 10.0,
-      color: Colors.blue,
-    );
-  }
+
 
   Widget _topView(String name, String phone) {
     return new GestureDetector(

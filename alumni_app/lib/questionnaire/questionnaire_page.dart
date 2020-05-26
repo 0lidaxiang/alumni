@@ -1,4 +1,3 @@
-import 'package:Alumni/questionnaire/depart_radio.dart';
 import 'package:Alumni/questionnaire/select_list_page.dart';
 import 'package:flutter/material.dart';
 

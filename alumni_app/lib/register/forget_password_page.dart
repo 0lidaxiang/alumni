@@ -81,9 +81,10 @@ class _ForgetPassword extends State<ForgetPassword> {
                           userName = value;
                         },
                         validator: (phone) {
-                          // if(phone.length == 0){
-                          //   return '请输入手机号';
-                          // }
+                           if(phone.length == 0){
+                             return '请输入手机号';
+                           }
+                           return "phone error";
                         },
                         onFieldSubmitted: (value) {
 

@@ -5,7 +5,7 @@ import 'package:Alumni/questionnaire/gender_radio.dart';
 import 'package:Alumni/questionnaire/select_list_page.dart';
 import 'package:flutter/material.dart';
 
-final String INIT_ACTIVITY_NAME = '{"activityName":"test"}';
+const String INIT_ACTIVITY_NAME = '{"activityName":"test"}';
 
 class ApplyActivityPage extends StatefulWidget {
   String params;

@@ -2,8 +2,8 @@ import 'package:Alumni/config/app_router.dart';
 import 'package:flutter/material.dart';
  
 // void main() => runApp(new MyApp());
- 
-var COLORS = [
+
+const COLORS = [
   Color(0xFFEF7A85),
   Color(0xFFFF90B3),
   Color(0xFFFFC2E2),

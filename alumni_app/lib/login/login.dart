@@ -5,9 +5,6 @@ import 'package:Alumni/register/forget_password_page.dart';
 import 'package:Alumni/register/register_page.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert';
-import 'dart:io';
-import 'package:Alumni/home/home_page.dart';
-import 'package:flutter/material.dart';
 
 
 class Login extends StatefulWidget {
@@ -47,7 +44,7 @@ class _Login extends State<Login> {
       try {
         var request = await httpClient.getUrl(Uri.parse(url));
         var response = await request.close();
-        if (response.statusCode == HttpStatus.OK) {
+        if (response.statusCode == HttpStatus.ok) {
           var json = await response.transform(utf8.decoder).join();
           var data = jsonDecode(json);
           result = data['origin'];
@@ -126,9 +123,10 @@ class _Login extends State<Login> {
                           userName = value;
                         },
                         validator: (phone) {
-                          // if(phone.length == 0){
-                          //   return '请输入手机号';
-                          // }
+                           if(phone.length == 0){
+                             return '请输入手机号';
+                           }
+                           return "phone error login";
                         },
                         onFieldSubmitted: (value) {
 

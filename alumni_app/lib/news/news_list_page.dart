@@ -1,9 +1,9 @@
 import 'package:Alumni/common/bottom_page.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'dart:convert' show JSON, jsonDecode;
+import 'dart:convert' show jsonDecode;
 
-var COLORS = [
+const COLORS = [
   Color(0xFFEF7A85),
   Color(0xFFFF90B3),
   Color(0xFFFFC2E2),
@@ -30,7 +30,6 @@ class _NewsPageState extends State<NewsPage> {
   @override
   Widget build(BuildContext context) {
     final title = '新闻速报';
-    bottomNavigationBar:
     BottomPage();
     return new MaterialApp(
       title: title,

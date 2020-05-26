@@ -6,8 +6,8 @@ class FoodCheckbox extends StatefulWidget {
 }
 
 class _CheckboxDemoState extends State<FoodCheckbox> {
-  bool _su_checkboxSelected = false;
-  bool _hun_checkboxSelected = false;
+  bool suCheckboxSelected = false;
+  bool hunCheckboxSelected = false;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +31,7 @@ class _CheckboxDemoState extends State<FoodCheckbox> {
       ),
       // child: new Row(
       CheckboxListTile(
-        value: _su_checkboxSelected,
+        value: suCheckboxSelected,
         title: Text('素'),
         activeColor: Colors.red,
         dense: true,
@@ -42,12 +42,12 @@ class _CheckboxDemoState extends State<FoodCheckbox> {
         onChanged: (value) {
           print(value);
           setState(() {
-            _su_checkboxSelected = value;
+            suCheckboxSelected = value;
           });
         },
       ),
       CheckboxListTile(
-        value: _hun_checkboxSelected,
+        value: hunCheckboxSelected,
         title: Text('荤'),
         activeColor: Colors.red,
         dense: true,
@@ -58,7 +58,7 @@ class _CheckboxDemoState extends State<FoodCheckbox> {
         onChanged: (value) {
           print(value);
           setState(() {
-            _hun_checkboxSelected = value;
+            hunCheckboxSelected = value;
           });
         },
       ),
